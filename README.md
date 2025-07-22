@@ -1,1 +1,0 @@
-# Youtube-Livestream-translator
