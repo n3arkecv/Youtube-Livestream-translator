@@ -1,0 +1,32 @@
+# GUI Framework
+PyQt5==5.15.9
+PyQt5-Qt5==5.15.2
+PyQt5-sip==12.11.0
+
+# YouTube Download
+yt-dlp==2023.10.13
+
+# Audio Processing
+pydub==0.25.1
+sounddevice==0.4.6
+numpy==1.24.3
+
+# Speech Recognition
+openai-whisper==20231117
+torch==2.1.0
+torchaudio==2.1.0
+
+# Translation
+transformers>=4.53.0  # 支援 Gemma 3n
+accelerate>=0.26.0
+bitsandbytes>=0.41.1
+sentencepiece>=0.1.99  # Gemma 3n tokenizer 支援
+
+# Utils
+requests==2.31.0
+pywin32==306
+pyinstaller==6.1.0
+ffmpeg-python==0.2.0
+
+# Overlay
+screeninfo==0.8.1 

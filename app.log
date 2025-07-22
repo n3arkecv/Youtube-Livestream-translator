@@ -1,0 +1,290 @@
+2025-07-09 22:58:14,475 - __main__ - INFO - 啟動 YouTube 直播即時翻譯器...
+2025-07-09 22:59:34,714 - src.core.youtube_handler - INFO - 正在連接到 YouTube 直播: https://www.youtube.com/watch?v=GrfKpjkvwbk
+2025-07-09 22:59:36,923 - src.core.youtube_handler - INFO - 成功連接到 YouTube 直播
+2025-07-09 22:59:36,925 - src.core.transcriber - INFO - 正在初始化 Whisper 模型...
+2025-07-09 22:59:36,925 - src.core.transcriber - INFO - 使用 CPU
+2025-07-09 22:59:36,925 - src.core.transcriber - INFO - 正在載入 Whisper large-v3 模型...
+2025-07-09 23:00:52,517 - src.core.transcriber - WARNING - Turbo 優化失敗，使用標準模式: Windows not yet supported for torch.compile
+2025-07-09 23:00:52,517 - src.core.transcriber - INFO - Whisper 模型初始化完成
+2025-07-09 23:00:52,518 - src.core.translator - INFO - 正在初始化 Gemma 翻譯模型...
+2025-07-09 23:00:52,526 - src.core.translator - INFO - 載入分詞器...
+2025-07-09 23:00:52,835 - src.core.translator - ERROR - 初始化 Gemma 模型失敗: You are trying to access a gated repo.
+Make sure to request access at https://huggingface.co/google/gemma-2b-it and pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`.
+2025-07-09 23:00:52,836 - src.gui.main_window - ERROR - 處理執行緒錯誤: You are trying to access a gated repo.
+Make sure to request access at https://huggingface.co/google/gemma-2b-it and pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`.
+Traceback (most recent call last):
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\huggingface_hub\utils\_errors.py", line 261, in hf_raise_for_status
+    response.raise_for_status()
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\requests\models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://huggingface.co/google/gemma-2b-it/resolve/main/tokenizer_config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\transformers\utils\hub.py", line 430, in cached_file
+    resolved_file = hf_hub_download(
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\huggingface_hub\utils\_validators.py", line 118, in _inner_fn
+    return fn(*args, **kwargs)
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\huggingface_hub\file_download.py", line 1346, in hf_hub_download
+    raise head_call_error
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\huggingface_hub\file_download.py", line 1232, in hf_hub_download
+    metadata = get_hf_file_metadata(
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\huggingface_hub\utils\_validators.py", line 118, in _inner_fn
+    return fn(*args, **kwargs)
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\huggingface_hub\file_download.py", line 1608, in get_hf_file_metadata
+    hf_raise_for_status(r)
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\huggingface_hub\utils\_errors.py", line 277, in hf_raise_for_status
+    raise GatedRepoError(message, response) from e
+huggingface_hub.utils._errors.GatedRepoError: 401 Client Error. (Request ID: Root=1-686e8424-2568d0f15dabf6aa59d47bb0;aac08ccf-512f-425a-802d-bdd50c1d2766)
+
+Cannot access gated repo for url https://huggingface.co/google/gemma-2b-it/resolve/main/tokenizer_config.json.
+Access to model google/gemma-2b-it is restricted. You must have access to it and be authenticated to access it. Please log in.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\src\gui\main_window.py", line 57, in run
+    self.translator.initialize()
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\src\core\translator.py", line 118, in initialize
+    self.tokenizer = AutoTokenizer.from_pretrained(
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\transformers\models\auto\tokenization_auto.py", line 718, in from_pretrained
+    tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\transformers\models\auto\tokenization_auto.py", line 550, in get_tokenizer_config
+    resolved_config_file = cached_file(
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\transformers\utils\hub.py", line 445, in cached_file
+    raise EnvironmentError(
+OSError: You are trying to access a gated repo.
+Make sure to request access at https://huggingface.co/google/gemma-2b-it and pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`.
+2025-07-09 23:00:52,851 - src.core.youtube_handler - INFO - 正在斷開 YouTube 連接...
+2025-07-09 23:00:52,953 - src.core.youtube_handler - INFO - 已斷開 YouTube 連接
+2025-07-09 23:01:03,983 - src.core.youtube_handler - INFO - 正在連接到 YouTube 直播: https://www.youtube.com/watch?v=GrfKpjkvwbk
+2025-07-09 23:01:07,692 - src.core.youtube_handler - INFO - 成功連接到 YouTube 直播
+2025-07-09 23:01:07,692 - src.core.transcriber - INFO - 正在初始化 Whisper 模型...
+2025-07-09 23:01:07,693 - src.core.transcriber - INFO - 使用 CPU
+2025-07-09 23:01:07,693 - src.core.transcriber - INFO - 正在載入 Whisper large-v3 模型...
+2025-07-09 23:01:18,635 - src.core.transcriber - WARNING - Turbo 優化失敗，使用標準模式: Windows not yet supported for torch.compile
+2025-07-09 23:01:18,635 - src.core.transcriber - INFO - Whisper 模型初始化完成
+2025-07-09 23:01:18,635 - src.core.translator - INFO - 正在初始化 Gemma 翻譯模型...
+2025-07-09 23:01:18,641 - src.core.translator - INFO - 載入分詞器...
+2025-07-09 23:01:19,059 - src.core.translator - ERROR - 初始化 Gemma 模型失敗: You are trying to access a gated repo.
+Make sure to request access at https://huggingface.co/google/gemma-2b-it and pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`.
+2025-07-09 23:01:19,059 - src.gui.main_window - ERROR - 處理執行緒錯誤: You are trying to access a gated repo.
+Make sure to request access at https://huggingface.co/google/gemma-2b-it and pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`.
+Traceback (most recent call last):
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\huggingface_hub\utils\_errors.py", line 261, in hf_raise_for_status
+    response.raise_for_status()
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\requests\models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://huggingface.co/google/gemma-2b-it/resolve/main/tokenizer_config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\transformers\utils\hub.py", line 430, in cached_file
+    resolved_file = hf_hub_download(
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\huggingface_hub\utils\_validators.py", line 118, in _inner_fn
+    return fn(*args, **kwargs)
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\huggingface_hub\file_download.py", line 1346, in hf_hub_download
+    raise head_call_error
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\huggingface_hub\file_download.py", line 1232, in hf_hub_download
+    metadata = get_hf_file_metadata(
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\huggingface_hub\utils\_validators.py", line 118, in _inner_fn
+    return fn(*args, **kwargs)
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\huggingface_hub\file_download.py", line 1608, in get_hf_file_metadata
+    hf_raise_for_status(r)
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\huggingface_hub\utils\_errors.py", line 277, in hf_raise_for_status
+    raise GatedRepoError(message, response) from e
+huggingface_hub.utils._errors.GatedRepoError: 401 Client Error. (Request ID: Root=1-686e843e-5bd42f8845c304c7586ec36d;91201979-3366-4613-aeba-6c501984e5c7)
+
+Cannot access gated repo for url https://huggingface.co/google/gemma-2b-it/resolve/main/tokenizer_config.json.
+Access to model google/gemma-2b-it is restricted. You must have access to it and be authenticated to access it. Please log in.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\src\gui\main_window.py", line 57, in run
+    self.translator.initialize()
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\src\core\translator.py", line 118, in initialize
+    self.tokenizer = AutoTokenizer.from_pretrained(
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\transformers\models\auto\tokenization_auto.py", line 718, in from_pretrained
+    tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\transformers\models\auto\tokenization_auto.py", line 550, in get_tokenizer_config
+    resolved_config_file = cached_file(
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\transformers\utils\hub.py", line 445, in cached_file
+    raise EnvironmentError(
+OSError: You are trying to access a gated repo.
+Make sure to request access at https://huggingface.co/google/gemma-2b-it and pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`.
+2025-07-09 23:01:19,061 - src.core.youtube_handler - INFO - 正在斷開 YouTube 連接...
+2025-07-09 23:01:19,079 - src.core.youtube_handler - INFO - 已斷開 YouTube 連接
+2025-07-09 23:30:04,773 - __main__ - INFO - 啟動 YouTube 直播即時翻譯器...
+2025-07-09 23:48:44,299 - __main__ - INFO - 啟動 YouTube 直播即時翻譯器...
+2025-07-09 23:48:59,200 - src.core.youtube_handler - INFO - 正在連接到 YouTube 直播: https://www.youtube.com/watch?v=GrfKpjkvwbk
+2025-07-09 23:49:01,072 - src.core.youtube_handler - INFO - 成功連接到 YouTube 直播
+2025-07-09 23:49:01,073 - src.core.transcriber - INFO - 正在初始化 Whisper 模型...
+2025-07-09 23:49:01,073 - src.core.transcriber - INFO - 使用 CPU
+2025-07-09 23:49:01,074 - src.core.transcriber - INFO - 正在載入 Whisper large-v3 模型...
+2025-07-09 23:49:13,000 - src.core.transcriber - WARNING - Turbo 優化失敗，使用標準模式: Windows not yet supported for torch.compile
+2025-07-09 23:49:13,000 - src.core.transcriber - INFO - Whisper 模型初始化完成
+2025-07-09 23:49:13,000 - src.core.translator - INFO - 正在初始化 Gemma 翻譯模型...
+2025-07-09 23:49:13,008 - src.core.translator - INFO - 載入分詞器...
+2025-07-09 23:49:14,462 - src.core.translator - ERROR - 初始化 Gemma 模型失敗: Tokenizer class GemmaTokenizer does not exist or is not currently imported.
+2025-07-09 23:49:14,462 - src.gui.main_window - ERROR - 處理執行緒錯誤: Tokenizer class GemmaTokenizer does not exist or is not currently imported.
+Traceback (most recent call last):
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\src\gui\main_window.py", line 57, in run
+    self.translator.initialize()
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\src\core\translator.py", line 118, in initialize
+    self.tokenizer = AutoTokenizer.from_pretrained(
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\transformers\models\auto\tokenization_auto.py", line 765, in from_pretrained
+    raise ValueError(
+ValueError: Tokenizer class GemmaTokenizer does not exist or is not currently imported.
+2025-07-09 23:49:14,468 - src.core.youtube_handler - INFO - 正在斷開 YouTube 連接...
+2025-07-09 23:49:14,484 - src.core.youtube_handler - INFO - 已斷開 YouTube 連接
+2025-07-09 23:57:34,807 - __main__ - INFO - 啟動 YouTube 直播即時翻譯器...
+2025-07-09 23:58:47,811 - src.core.youtube_handler - INFO - 正在連接到 YouTube 直播: https://www.youtube.com/watch?v=GrfKpjkvwbk
+2025-07-09 23:58:49,629 - src.core.youtube_handler - INFO - 成功連接到 YouTube 直播
+2025-07-09 23:58:49,630 - src.core.transcriber - INFO - 正在初始化 Whisper 模型...
+2025-07-09 23:58:49,630 - src.core.transcriber - INFO - 使用 CPU
+2025-07-09 23:58:49,630 - src.core.transcriber - INFO - 正在載入 Whisper large-v3 模型...
+2025-07-09 23:58:59,984 - src.core.transcriber - WARNING - Turbo 優化失敗，使用標準模式: Windows not yet supported for torch.compile
+2025-07-09 23:58:59,984 - src.core.transcriber - INFO - Whisper 模型初始化完成
+2025-07-09 23:58:59,984 - src.core.translator - INFO - 正在初始化 Gemma 翻譯模型...
+2025-07-09 23:58:59,990 - src.core.translator - INFO - 載入分詞器...
+2025-07-09 23:59:07,208 - src.core.translator - INFO - 載入 google/gemma-3n-E2B-it 模型...
+2025-07-10 00:04:22,806 - src.core.translator - ERROR - 初始化 Gemma 模型失敗: 
+TimmWrapperModel requires the PIL library but it was not found in your environment. You can install it with pip:
+`pip install pillow`. Please note that you may need to restart your runtime after installation.
+
+TimmWrapperModel requires the timm library but it was not found in your environment. You can install it with pip:
+`pip install timm`. Please note that you may need to restart your runtime after installation.
+
+2025-07-10 00:04:22,807 - src.gui.main_window - ERROR - 處理執行緒錯誤: 
+TimmWrapperModel requires the PIL library but it was not found in your environment. You can install it with pip:
+`pip install pillow`. Please note that you may need to restart your runtime after installation.
+
+TimmWrapperModel requires the timm library but it was not found in your environment. You can install it with pip:
+`pip install timm`. Please note that you may need to restart your runtime after installation.
+Traceback (most recent call last):
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\src\gui\main_window.py", line 57, in run
+    self.translator.initialize()
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\src\core\translator.py", line 139, in initialize
+    self.model = AutoModelForCausalLM.from_pretrained(
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\transformers\models\auto\auto_factory.py", line 600, in from_pretrained
+    return model_class.from_pretrained(
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\transformers\modeling_utils.py", line 311, in _wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\transformers\modeling_utils.py", line 4766, in from_pretrained
+    model = cls(config, *model_args, **model_kwargs)
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\transformers\models\gemma3n\modeling_gemma3n.py", line 2207, in __init__
+    self.model = Gemma3nModel(config)
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\transformers\models\gemma3n\modeling_gemma3n.py", line 1959, in __init__
+    self.vision_tower = AutoModel.from_config(config=config.vision_config)
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\transformers\models\auto\auto_factory.py", line 456, in from_config
+    return model_class._from_config(config, **kwargs)
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\transformers\modeling_utils.py", line 311, in _wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\transformers\modeling_utils.py", line 2208, in _from_config
+    model = cls(config, **kwargs)
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\transformers\models\timm_wrapper\modeling_timm_wrapper.py", line 117, in __init__
+    super().__init__(config)
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\transformers\models\timm_wrapper\modeling_timm_wrapper.py", line 70, in __init__
+    requires_backends(self, ["vision", "timm"])
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\venv\lib\site-packages\transformers\utils\import_utils.py", line 1980, in requires_backends
+    raise ImportError("".join(failed))
+ImportError: 
+TimmWrapperModel requires the PIL library but it was not found in your environment. You can install it with pip:
+`pip install pillow`. Please note that you may need to restart your runtime after installation.
+
+TimmWrapperModel requires the timm library but it was not found in your environment. You can install it with pip:
+`pip install timm`. Please note that you may need to restart your runtime after installation.
+
+2025-07-10 00:04:22,830 - src.core.youtube_handler - INFO - 正在斷開 YouTube 連接...
+2025-07-10 00:04:22,927 - src.core.youtube_handler - INFO - 已斷開 YouTube 連接
+2025-07-10 12:17:21,156 - __main__ - INFO - 啟動 YouTube 直播即時翻譯器...
+2025-07-10 12:17:34,648 - src.core.youtube_handler - INFO - 正在連接到 YouTube 直播: https://www.youtube.com/watch?v=Z2KLVjNXPjY
+2025-07-10 12:17:36,881 - src.core.youtube_handler - INFO - 成功連接到 YouTube 直播
+2025-07-10 12:17:36,881 - src.core.transcriber - INFO - 正在初始化 Whisper 模型...
+2025-07-10 12:17:36,955 - src.core.transcriber - INFO - 使用 CUDA 加速
+2025-07-10 12:17:36,955 - src.core.transcriber - INFO - 正在載入 Whisper large-v3 模型...
+2025-07-10 12:19:30,639 - src.core.transcriber - INFO - Whisper 模型初始化完成
+2025-07-10 12:19:30,639 - src.core.translator - INFO - 正在初始化 Gemma 翻譯模型...
+2025-07-10 12:19:30,640 - src.core.translator - INFO - Gemma 翻譯模型將使用: CPU
+2025-07-10 12:19:30,640 - src.core.translator - INFO - CPU 模式：不使用量化，使用全精度模型
+2025-07-10 12:19:30,640 - src.core.translator - INFO - 載入分詞器...
+2025-07-10 12:19:32,489 - src.core.translator - INFO - 載入 google/gemma-3n-E4B-it 模型...
+2025-07-10 12:28:56,439 - src.core.translator - INFO - Gemma 翻譯模型初始化完成 (設備: CPU)
+2025-07-10 12:31:11,544 - src.core.youtube_handler - INFO - 正在斷開 YouTube 連接...
+2025-07-10 12:31:11,643 - src.core.youtube_handler - INFO - 已斷開 YouTube 連接
+2025-07-10 12:31:52,274 - src.core.youtube_handler - INFO - 正在連接到 YouTube 直播: https://www.youtube.com/watch?v=Z2KLVjNXPjY
+2025-07-10 12:31:53,542 - src.core.youtube_handler - INFO - 成功連接到 YouTube 直播
+2025-07-10 12:31:53,544 - src.core.transcriber - INFO - 正在初始化 Whisper 模型...
+2025-07-10 12:31:53,548 - src.core.transcriber - INFO - 使用 CUDA 加速
+2025-07-10 12:31:53,548 - src.core.transcriber - INFO - 正在載入 Whisper large-v3 模型...
+2025-07-10 12:32:09,307 - src.core.transcriber - INFO - Whisper 模型初始化完成
+2025-07-10 12:32:09,310 - src.core.translator - INFO - 正在初始化 Gemma 翻譯模型...
+2025-07-10 12:32:09,310 - src.core.translator - INFO - Gemma 翻譯模型將使用: CPU
+2025-07-10 12:32:09,311 - src.core.translator - INFO - CPU 模式：不使用量化，使用全精度模型
+2025-07-10 12:32:09,311 - src.core.translator - INFO - 載入分詞器...
+2025-07-10 12:32:11,254 - src.core.translator - INFO - 載入 google/gemma-3n-E4B-it 模型...
+2025-07-10 12:32:33,159 - src.core.translator - INFO - Gemma 翻譯模型初始化完成 (設備: CPU)
+2025-07-10 12:46:19,756 - src.core.youtube_handler - INFO - 正在斷開 YouTube 連接...
+2025-07-10 12:46:19,839 - src.core.youtube_handler - INFO - 已斷開 YouTube 連接
+2025-07-10 13:10:12,735 - __main__ - INFO - 啟動 YouTube 直播即時翻譯器...
+2025-07-10 13:10:15,170 - __main__ - ERROR - 應用程式發生錯誤: name 'QAction' is not defined
+Traceback (most recent call last):
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\main.py", line 80, in main
+    window = MainWindow()
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\src\gui\main_window.py", line 145, in __init__
+    self.setup_tray_icon()
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\src\gui\main_window.py", line 298, in setup_tray_icon
+    show_action = QAction("顯示主視窗", self)
+NameError: name 'QAction' is not defined
+2025-07-10 13:11:26,277 - __main__ - INFO - 啟動 YouTube 直播即時翻譯器...
+2025-07-10 13:11:28,327 - __main__ - ERROR - 應用程式發生錯誤: name 'QAction' is not defined
+Traceback (most recent call last):
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\main.py", line 80, in main
+    window = MainWindow()
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\src\gui\main_window.py", line 145, in __init__
+    self.setup_tray_icon()
+  File "C:\Users\sc333\Desktop\Cursor Projects\Youtube Translator\src\gui\main_window.py", line 298, in setup_tray_icon
+    show_action = QAction("顯示主視窗", self)
+NameError: name 'QAction' is not defined
+2025-07-10 13:12:43,173 - __main__ - INFO - 啟動 YouTube 直播即時翻譯器...
+2025-07-10 13:13:10,443 - __main__ - INFO - 啟動 YouTube 直播即時翻譯器...
+2025-07-10 13:13:38,426 - src.core.youtube_handler - INFO - 正在連接到 YouTube 直播: https://www.youtube.com/watch?v=dXfhVuojwZs
+2025-07-10 13:13:40,263 - src.core.youtube_handler - INFO - 成功連接到 YouTube 直播
+2025-07-10 13:13:40,265 - src.core.transcriber - INFO - 正在初始化 Whisper 模型...
+2025-07-10 13:13:40,337 - src.core.transcriber - INFO - 使用 CUDA 加速
+2025-07-10 13:13:40,337 - src.core.transcriber - INFO - 正在載入 Whisper large-v3 模型...
+2025-07-10 13:13:40,354 - src.core.youtube_handler - ERROR - 下載串流失敗: [WinError 2] 系統找不到指定的檔案。
+2025-07-10 13:14:27,723 - __main__ - INFO - 啟動 YouTube 直播即時翻譯器...
+2025-07-10 13:14:38,781 - src.core.youtube_handler - INFO - 正在連接到 YouTube 直播: https://www.youtube.com/watch?v=dXfhVuojwZs
+2025-07-10 13:14:40,496 - src.core.youtube_handler - INFO - 成功連接到 YouTube 直播
+2025-07-10 13:14:40,496 - src.core.transcriber - INFO - 正在初始化 Whisper 模型...
+2025-07-10 13:14:40,512 - src.core.transcriber - INFO - 使用 CUDA 加速
+2025-07-10 13:14:40,512 - src.core.transcriber - INFO - 正在載入 Whisper large-v3 模型...
+2025-07-10 13:15:00,423 - src.core.transcriber - INFO - Whisper 模型初始化完成
+2025-07-10 13:15:00,423 - src.core.translator - INFO - 正在初始化 Gemma 翻譯模型...
+2025-07-10 13:15:00,423 - src.core.translator - INFO - Gemma 翻譯模型將使用: CPU
+2025-07-10 13:15:00,423 - src.core.translator - INFO - CPU 模式：不使用量化，使用全精度模型
+2025-07-10 13:15:00,423 - src.core.translator - INFO - 載入分詞器...
+2025-07-10 13:15:02,113 - src.core.translator - INFO - 載入 google/gemma-3n-E2B-it 模型...
+2025-07-10 13:16:39,543 - src.core.translator - INFO - Gemma 翻譯模型初始化完成 (設備: CPU)
+2025-07-10 13:18:18,685 - src.core.youtube_handler - INFO - 正在斷開 YouTube 連接...
+2025-07-10 13:18:18,779 - src.core.youtube_handler - INFO - 已斷開 YouTube 連接
+2025-07-10 13:51:30,508 - __main__ - INFO - 啟動 YouTube 直播即時翻譯器...
+2025-07-10 13:51:52,730 - src.core.youtube_handler - INFO - 正在連接到 YouTube 直播: https://www.youtube.com/watch?v=dXfhVuojwZs
+2025-07-10 13:51:54,534 - src.core.youtube_handler - INFO - 成功連接到 YouTube 直播
+2025-07-10 13:51:54,535 - src.core.transcriber - INFO - 正在初始化 Whisper 模型...
+2025-07-10 13:51:54,552 - src.core.transcriber - INFO - 使用 CUDA 加速
+2025-07-10 13:51:54,552 - src.core.transcriber - INFO - 正在載入 Whisper large-v3 模型...
+2025-07-10 13:52:09,066 - src.core.transcriber - INFO - PyTorch 編譯優化已啟用
+2025-07-10 13:52:09,068 - src.core.transcriber - INFO - Turbo 模型優化完成
+2025-07-10 13:52:09,068 - src.core.transcriber - INFO - Whisper 模型初始化完成
+2025-07-10 13:52:09,068 - src.core.translator - INFO - 正在初始化 Gemma 翻譯模型...
+2025-07-10 13:52:09,068 - src.core.translator - INFO - Gemma 翻譯模型將使用: CPU
+2025-07-10 13:52:09,068 - src.core.translator - INFO - CPU 模式：不使用量化，使用全精度模型
+2025-07-10 13:52:09,069 - src.core.translator - INFO - 載入分詞器...
+2025-07-10 13:52:11,117 - src.core.translator - INFO - 載入 google/gemma-3n-E2B-it 模型...
+2025-07-10 13:52:26,937 - src.core.translator - INFO - Gemma 翻譯模型初始化完成 (設備: CPU)
+2025-07-10 14:06:52,672 - src.core.youtube_handler - INFO - 正在斷開 YouTube 連接...
